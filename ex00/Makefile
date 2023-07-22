@@ -1,0 +1,51 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rjeong <rjeong@student.42seoul.kr>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/07/22 04:44:02 by rjeong            #+#    #+#              #
+#    Updated: 2023/07/22 04:44:04 by rjeong           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME := ex00
+
+CC := c++
+CFLAGS := -Wall -Wextra -Werror -MMD -MP -std=c++98
+RM := rm -f
+
+all : $(NAME)
+
+SRCS := \
+	Zombie.cpp \
+	newZombie.cpp \
+	randomChump.cpp \
+	main.cpp
+
+OBJS := \
+	$(SRCS:.cpp=.o)
+
+DEPS := \
+	$(SRCS:.cpp=.d)
+
+-include $(DEPS)
+
+clean :
+	$(RM) $(OBJS)
+	$(RM) $(DEPS)
+
+fclean : clean
+	$(RM) $(NAME)
+
+re : fclean
+	make all
+
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+.PHONY : all clean fclean re
