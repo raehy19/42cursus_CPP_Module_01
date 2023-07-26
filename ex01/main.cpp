@@ -40,6 +40,5 @@ int main() {
 		horde[i].announce();
 	delete[] horde;
 
-	system("leaks ex01");
 	return (0);
 }
