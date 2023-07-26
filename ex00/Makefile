@@ -13,7 +13,7 @@
 NAME := ex00
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror -MMD -MP -std=c++98
+CFLAGS := -Wall -Wextra -Werror -std=c++98 -MMD -MP
 RM := rm -f
 
 all : $(NAME)
@@ -45,7 +45,7 @@ re : fclean
 $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@
 
-%.o : %.c
+%.o : %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 .PHONY : all clean fclean re
