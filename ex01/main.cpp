@@ -12,19 +12,34 @@
 
 #include "Zombie.hpp"
 
-Zombie *newZombie(std::string name);
-
-void randomChump(std::string name);
+Zombie *zombieHorde(int N, std::string name);
 
 int main() {
-	Zombie Alpha = Zombie("Alpha");
-	Alpha.announce();
+	int n;
+	std::string zombie_name;
+	Zombie *horde;
 
-	Zombie *Bravo = newZombie("Bravo");
-	Bravo->announce();
-	delete Bravo;
+	n = 1;
+	zombie_name = "Alpha";
+	horde = zombieHorde(n, zombie_name);
+	for (int i(0); i < n; ++i)
+		horde[i].announce();
+	delete[] horde;
 
-	randomChump("Charlie");
+	n = 2;
+	zombie_name = "Bravo";
+	horde = zombieHorde(n, zombie_name);
+	for (int i(0); i < n; ++i)
+		horde[i].announce();
+	delete[] horde;
 
+	n = 10;
+	zombie_name = "Charlie";
+	horde = zombieHorde(n, zombie_name);
+	for (int i(0); i < n; ++i)
+		horde[i].announce();
+	delete[] horde;
+
+	system("leaks ex01");
 	return (0);
 }

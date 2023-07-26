@@ -12,7 +12,12 @@
 
 #include "Zombie.hpp"
 
+Zombie::Zombie() : _name("NoName") {
+	std::cout << "Zombie name \'" << this->_name << "\' Created" << std::endl;
+}
+
 Zombie::Zombie(std::string name) : _name(name) {
+	std::cout << "Zombie name \'" << this->_name << "\' Created" << std::endl;
 }
 
 Zombie::~Zombie() {

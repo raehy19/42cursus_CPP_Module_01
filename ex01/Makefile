@@ -13,7 +13,7 @@
 NAME := ex01
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror -std=c++98 -MMD -MP
+CFLAGS := -Wall -Wextra -Werror -std=c++98 -MMD -MP -g
 RM := rm -f
 
 all : $(NAME)
