@@ -19,7 +19,11 @@ HumanB::~HumanB(void) {
 }
 
 void HumanB::attack(void) {
-	std::cout << this->name << " attacks with his " << this->weapon->getType() << std::endl;
+	std::cout << this->name << " attacks with his ";
+	if (this->weapon)
+		std::cout << this->weapon->getType() << std::endl;
+	else
+		std::cout << "hand" << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &weapon) {
