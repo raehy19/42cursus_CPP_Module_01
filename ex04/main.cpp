@@ -26,7 +26,10 @@ void ft_read_data(std::ifstream &file_in, std::string &data) {
 void ft_replace(std::string &data, std::string s1, std::string s2) {
 	size_t pos = 0;
 
-	while ((pos = data.find(s1, pos)) != std::string::npos) {
+	while (true) {
+		pos = data.find(s1, pos);
+		if (pos == std::string::npos)
+			break;
 		data.erase(pos, s1.length());
 		data.insert(pos, s2);
 		pos += s2.length();
